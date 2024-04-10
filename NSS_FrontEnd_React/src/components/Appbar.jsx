@@ -7,23 +7,23 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
-import AdbIcon from '@mui/icons-material/Adb';
+import { useMediaQuery } from '@mui/material';
 
 const pages = ['Home', 'Events', 'About Us', 'Office Bearers', 'Contact Us'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Appbar() {
       const [anchorElNav, setAnchorElNav] = React.useState(null);
+      const isMediumScreen = useMediaQuery('(min-width:600px)');
+      const isLargeScreen = useMediaQuery('(min-width:960px)'); 
+      const isSmallMobile = useMediaQuery('(min-width:320px) and (max-width:480px)');
 
       const handleOpenNavMenu = (event) => {
             setAnchorElNav(event.currentTarget);
       };
-   
+
       const handleCloseNavMenu = () => {
             setAnchorElNav(null);
       };
@@ -31,7 +31,7 @@ function Appbar() {
 
       return (
             <AppBar position="static">
-                  <Container maxWidth="xl" sx={{ background: '#353a40', height: '70px' }} >
+                  <Container maxWidth="xl" width="full" sx={{ background: '#353a40', height: '70px' }} >
                         <Toolbar disableGutters sx={{
                               paddingLeft: '0px',
                               paddingRight: '0px',
@@ -39,32 +39,38 @@ function Appbar() {
                                     paddingLeft: '15px',
                                     paddingRight: '15px',
                               },
+                              '@media (min-width: 320x)': {
+                                    paddingLeft: '0x',
+                                    paddingRight: '0px',
+                              },
                         }}>
-                              <img
-                                    srcSet={'./src/assets/NSS-symbol.png'}
-                                    src={'./src/assets/NSS-symbol.png'}
-                                    alt="NSS logo"
-                                    loading="lazy"
-                                    width='60px'
-                              />
+                             <img
+            src="./src/assets/NSS-symbol.png"
+            alt="NSS logo"
+            loading="lazy"
+            style={{
+              width: isMediumScreen ? (isLargeScreen ? '60px' : '50px') : '50px',
+            }}
+          />      
                               <Box sx={{ display: 'block' }}>
 
-                                    <Typography
-                                          variant="h6"
-                                          noWrap
-                                          component="a"
-                                          href="#app-bar-with-responsive-menu"
-                                          sx={{
-                                                ml: 2,
-                                                mr: 2,
-                                                display: { xs: 'none', md: 'flex' },
-                                                fontFamily: 'sans-serif',
-                                                letterSpacing: '.1rem',
-                                                fontSize: '1.25rem',
-                                                color: 'inherit',
-                                                textDecoration: 'none',
-                                          }}
-                                    >NATIONAL SERVICE SCHEME
+                                   <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              ml: 2,
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'sans-serif',
+              letterSpacing: '.1rem',
+              fontSize: isSmallMobile ? '16px' : '1.25rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+                                          NATIONAL SERVICE SCHEME
                                     </Typography>
                                     <Typography variant="caption" sx={{ display: { xs: 'none', md: 'flex' }, fontSize: '10px', ml: 2 }} gutterBottom>
                                           BITS Pilani, Hyderabad Campus
@@ -80,15 +86,16 @@ function Appbar() {
                                                 display: { xs: 'flex', md: 'none' },
                                                 flexGrow: 1,
                                                 fontFamily: 'sans-serif',
-                                                letterSpacing: '.1rem',
+                                                letterSpacing: '0',
                                                 color: 'inherit',
+                                                fontSize: isSmallMobile ? '16px' : '1.25rem',
                                                 textDecoration: 'none',
-                                                fontSize: '1.25rem'
+                                               
                                           }}
                                     >
                                           NATIONAL SERVICE SCHEME
                                     </Typography>
-                                    <Typography variant="caption" sx={{ display: { xs: 'flex', md: 'none' }, xs: 'none', md: 'flex', fontSize: '10px', ml: 2 }} gutterBottom>
+                                    <Typography variant="caption" sx={{ display: { xs: 'flex', md: 'none' }, fontSize: '10px', ml: 2 }} gutterBottom>
                                           BITS Pilani, Hyderabad Campus
                                     </Typography>
                               </Box>
@@ -109,12 +116,16 @@ function Appbar() {
                                           </Button>
                                     ))}
                               </Box>
-                              <Box sx={{
+                              <Box 
+                              
+                              sx={{
+                                   
                                     flexGrow: 1,
                                     justifyContent: 'right',
                                     display: { xs: 'flex', lg: 'none' },
                               }}>
                                     <IconButton
+                                          sx={{padding:0}}
                                           size="large"
                                           aria-label="account of current user"
                                           aria-controls="menu-appbar"
