@@ -11,7 +11,7 @@ export default function Carousal() {
                               width='100%'
                               height='100%'
                         />
-                        
+                        hello
                         <Box display='flex'
                               position='absolute'
                               top='70px'

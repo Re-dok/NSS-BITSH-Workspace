@@ -5,15 +5,6 @@ import Footer from './components/Footer'
 import React from 'react';
 import Carousal from './components/Carousal';
 
-const RedBox = () => {
-  return (
-    <div style={{ backgroundColor: 'red', height: '200px' }}>
-      {/* Content goes here */}
-    </div>
-  );
-};
-
-
 function App() {
 
   return (
