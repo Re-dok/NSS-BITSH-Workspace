@@ -11,7 +11,7 @@ function App() {
     <>
       {/* <Appbar/> */}
       <Carousal/>
-      {/* <Footer/> */}
+      <Footer/>
     </>
   )
 }
