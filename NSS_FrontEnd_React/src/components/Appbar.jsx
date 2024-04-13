@@ -30,8 +30,8 @@ function Appbar() {
 
 
       return (
-            <AppBar position="static">
-                  <Container maxWidth="xl" width="full" sx={{ background: '#353a40', height: '70px' }} >
+            <AppBar position="fixed">
+                  <Container maxWidth="full" width="full" sx={{ background: '#353a40', height: '70px'}} >
                         <Toolbar disableGutters sx={{
                               paddingLeft: '0px',
                               paddingRight: '0px',
