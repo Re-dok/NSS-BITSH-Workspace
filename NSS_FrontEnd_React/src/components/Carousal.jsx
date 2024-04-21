@@ -7,7 +7,7 @@ export default function Carousal() {
             <Box paddingTop='70px' >
 
                   <Card style={{height: 'calc(100vh - 70px)',backgroundColor:'green'}}>
-                  
+                  {/* //breaks when height is around 1200px */}
                         <Box display='flex'
                               position='relative'
                               height='100%'

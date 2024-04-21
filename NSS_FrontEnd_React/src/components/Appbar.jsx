@@ -30,8 +30,8 @@ function Appbar() {
 
 
       return (
-            <AppBar position="fixed">
-                  <Container maxWidth="full" width="full" sx={{ background: '#353a40', height: '70px'}} >
+            <AppBar position="fixed" style={{ paddingLeft: '0', paddingRight: '0',background:'#353a40' }}>
+                  <Container maxWidth="full" width="full" sx={{paddingLeft:'0',paddingRight:'0', background: '#353a40', height: '70px',}} >    
                         <Toolbar disableGutters sx={{
                               paddingLeft: '0px',
                               paddingRight: '0px',
@@ -125,7 +125,7 @@ function Appbar() {
                                     display: { xs: 'flex', lg: 'none' },
                               }}>
                                     <IconButton
-                                          sx={{padding:0}}
+                                          sx={{padding:0, marginRight:'5px'}}
                                           size="large"
                                           aria-label="account of current user"
                                           aria-controls="menu-appbar"
@@ -150,6 +150,7 @@ function Appbar() {
                                           open={Boolean(anchorElNav)}
                                           onClose={handleCloseNavMenu}
                                           sx={{
+                                                // marginLeft: '-25px', 
                                                 display: { xs: 'flex', xl: 'none' },
                                                 '& .MuiList-padding': {
                                                       paddingTop: 0,
