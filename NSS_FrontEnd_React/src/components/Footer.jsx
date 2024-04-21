@@ -39,7 +39,7 @@ const CardComponent = (props) => (
 
 export default function Footer() {
       return (
-            <Grid container width='100%' minHeight='470px' zIndex={'3'}>
+            <Grid container width='100%' minHeight='350px' zIndex={'3'}>
                   <Grid item xs={12} sm={6} md={3}
                               sx={{ backgroundColor: '#222323',
                                      color: 'white', 

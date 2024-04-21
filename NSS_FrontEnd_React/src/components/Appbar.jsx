@@ -45,7 +45,7 @@ function Appbar() {
                               },
                         }}>
                              <img
-            src="./src/assets/NSS-symbol.png"
+            src="./src/assets/Images/NSS-symbol.png"
             alt="NSS logo"
             loading="lazy"
             style={{
@@ -149,8 +149,7 @@ function Appbar() {
                                           }}
                                           open={Boolean(anchorElNav)}
                                           onClose={handleCloseNavMenu}
-                                          sx={{
-                                                // marginLeft: '-25px', 
+                                          sx={{ 
                                                 display: { xs: 'flex', xl: 'none' },
                                                 '& .MuiList-padding': {
                                                       paddingTop: 0,
