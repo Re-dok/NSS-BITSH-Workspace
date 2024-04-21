@@ -10,8 +10,7 @@ import Grid from '@mui/material/Grid';
 const bull = (
       <Box
             component="span"
-            sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-      >
+            sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
       </Box>
 );
 const CardComponent = (props) => (
@@ -40,7 +39,7 @@ const CardComponent = (props) => (
 
 export default function Footer() {
       return (
-            <Grid container width='100%' minHeight='300px' >
+            <Grid container width='100%' minHeight='470px' zIndex={'3'}>
                   <Grid item xs={12} sm={6} md={3}
                               sx={{ backgroundColor: '#222323',
                                      color: 'white', 
