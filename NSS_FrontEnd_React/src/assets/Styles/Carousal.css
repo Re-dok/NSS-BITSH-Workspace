@@ -12,14 +12,14 @@
 }
 .slide-right-enter-active{
       transform: translateX(0%);
-      transition: transform 900ms ease-in-out;
+      transition: transform 800ms ease-in-out;
 }
 .slide-right-exit{
       transform: translateX(0%);
 }
 .slide-right-exit-active{
       transform: translate(-100%);
-      transition: transform 900ms ease-in-out;
+      transition: transform 800ms ease-in-out;
 }
 
 .slide-left-enter{
@@ -27,12 +27,12 @@
 }
 .slide-left-enter-active{
       transform: translateX(0%);
-      transition: transform 900ms ease-in-out;
+      transition: transform 800ms ease-in-out;
 }
 .slide-left-exit{
       transform: translateX(0%);
 }
 .slide-left-exit-active{
       transform: translateX(100%);
-      transition: transform 900ms ease-in-out;
+      transition: transform 800ms ease-in-out;
 }

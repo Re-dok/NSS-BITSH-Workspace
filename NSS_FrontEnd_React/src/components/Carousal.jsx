@@ -21,7 +21,7 @@ const imagesNames = ['bitsh.jpg', 'diw4.jpg'];
 
 // Dynamically construct the image URL based on the index
 const [index,setIndex]=useState(0);
-const imageUrl = imagesPath+imagesNames[index];
+const imageUrl = `${imagesPath}${imagesNames[index]}`
 
 
       const [direction,setDirection]=useState("slide-left");
@@ -41,9 +41,15 @@ const imageUrl = imagesPath+imagesNames[index];
             setIndex((index+1)%imagesNames.length);
             setDirection('slide-right');
       };
-     
+      const handleKeyDown = (event) => {
+            if (event.key === 'ArrowLeft') {
+                slideLeft();
+            } else if (event.key === 'ArrowRight') {
+                slideRight();
+            }
+        };
       return (
-            <Box style={{paddingTop:'70px',height:'calc(100vh - 70px)'}} className="image-slider">
+            <Box style={{paddingTop:'70px',height:'calc(100vh - 70px)'}} className="image-slider" onKeyDown={handleKeyDown}>
                   <Card style={{height: 'calc(100vh - 70px)',borderRadius:"0"}} className="image-wrapper">
 
                   <IconButton style={{position: 'absolute', left: 0,top:'calc(50vh - 55px)',zIndex:'2'}}>
@@ -82,7 +88,7 @@ const imageUrl = imagesPath+imagesNames[index];
 
                         <TransitionGroup childFactory={childFactory(direction)}>
                         <CSSTransition key={index}
-                                       timeout={1000}
+                                       timeout={800}
                                        classNames={direction}
                                        >
 
