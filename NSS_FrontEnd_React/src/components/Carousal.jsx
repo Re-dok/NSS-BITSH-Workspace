@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import {TransitionGroup,CSSTransition} from 'react-transition-group';
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import "../assets/Styles/Carousal.css";
 
@@ -16,10 +16,10 @@ const childFactory = (direction) => (child) => {
     };
 
 export default function Carousal() {
-      const imagesPath = './src/assets/Images/';
+      
+const imagesPath = './src/assets/Images/';
 const imagesNames = ['bitsh.jpg', 'diw4.jpg'];
 
-// Dynamically construct the image URL based on the index
 const [index,setIndex]=useState(0);
 const imageUrl = `${imagesPath}${imagesNames[index]}`
 
@@ -48,8 +48,14 @@ const imageUrl = `${imagesPath}${imagesNames[index]}`
                 slideRight();
             }
         };
+        useEffect(() => {
+          window.addEventListener('keydown', handleKeyDown);
+            return () => {
+                window.removeEventListener('keydown', handleKeyDown);
+            };
+        });
       return (
-            <Box style={{paddingTop:'70px',height:'calc(100vh - 70px)'}} className="image-slider" onKeyDown={handleKeyDown}>
+            <Box style={{height:'calc(100vh - 70px)'}}className="image-slider">
                   <Card style={{height: 'calc(100vh - 70px)',borderRadius:"0"}} className="image-wrapper">
 
                   <IconButton style={{position: 'absolute', left: 0,top:'calc(50vh - 55px)',zIndex:'2'}}>
@@ -92,7 +98,8 @@ const imageUrl = `${imagesPath}${imagesNames[index]}`
                                        classNames={direction}
                                        >
 
-                        <Box display='flex'
+                        <Box  display='flex'
+                              flexDirection='column'
                               position='absolute'
                               height='calc(100vh - 70px)'
                               style={{ backgroundImage:`url(${imageUrl})`,
@@ -103,18 +110,44 @@ const imageUrl = `${imagesPath}${imagesNames[index]}`
                               width='100%'
                               justifyContent='center'
                               alignItems='center'
-                        >
-                  
-                  
+                        >                  
                               <Box style={{
                                     backgroundColor: 'rgb(0, 0, 0, 0.2)',
                                     padding: '10px',
                                     borderRadius: '5px',
                                     backdropFilter: 'blur(5px)',
-                                    width:'75%'
+                                    width:'75%',
+                                    display:'block'
                               }} >
-                                          <Typography variant="h2" color="white" >This is a <span style={{color:"#f1633b"}}>word</span></Typography>
+                                          <Typography variant="h2" color="white"sx={{
+                                                 '@media (max-height: 320px), (max-width: 480px)': {
+                                                            fontSize:'40px'
+                                                      }}} >This is a <span style={{color:"#f1633b"}}>word</span></Typography>
                               </Box> 
+                              <Typography variant="h6" 
+                                          sx={{
+                                                display:'block',
+                                                position:'relative',
+                                                top:'25%',
+                                                '@media (max-height: 320px)': {
+                                                      top:'10%'
+                                                }
+                                          }}
+                                          color="white">
+                              Team 2021
+                                    <Typography variant="caption" 
+                                                color='white'
+                                                sx={{
+                                                      display:'flex',
+                                                      fontSize: '15px',
+                                                      alignItems:"center",'@media (max-height: 320px)': {
+                                                            fontSize:'10px'
+                                                      },
+                                                      justifyContent:'center'}}
+                                                gutterBottom>
+                                          NSS BPHC
+                                    </Typography>
+                              </Typography>
                         </Box>
                         </CSSTransition>
                         </TransitionGroup>
