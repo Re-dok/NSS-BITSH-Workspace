@@ -11,13 +11,18 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import { useMediaQuery } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
 
-const pages = ['Home', 'Events', 'About Us', 'Office Bearers', 'Contact Us'];
+const pagesInfo = [{ page: 'Home', pageLink: '/home' },
+{ page: 'Events', pageLink: '/events' },
+{ page: 'About Us', pageLink: '/aboutUs' },
+{ page: 'Office Bearers', pageLink: '/officeBearers' },
+{ page: 'Contact Us', pageLink: '/contactUs' }];
 
 function Appbar() {
       const [anchorElNav, setAnchorElNav] = React.useState(null);
       const isMediumScreen = useMediaQuery('(min-width:600px)');
-      const isLargeScreen = useMediaQuery('(min-width:960px)'); 
+      const isLargeScreen = useMediaQuery('(min-width:960px)');
       const isSmallMobile = useMediaQuery('(min-width:320px) and (max-width:480px)');
 
       const handleOpenNavMenu = (event) => {
@@ -27,11 +32,15 @@ function Appbar() {
       const handleCloseNavMenu = () => {
             setAnchorElNav(null);
       };
+      const navigate = useNavigate();
 
+      const handleClick = (pageLink) => {
+            navigate(pageLink);
+      };
 
       return (
-            <AppBar position="fixed">
-                  <Container maxWidth="full" width="full" sx={{ background: '#353a40', height: '70px'}} >
+            <AppBar position="fixed" style={{ paddingLeft: '0', paddingRight: '0', background: '#353a40' }}>
+                  <Container maxWidth="full" width="full" sx={{ paddingLeft: '0', paddingRight: '0', background: '#353a40', height: '70px', }} >
                         <Toolbar disableGutters sx={{
                               paddingLeft: '0px',
                               paddingRight: '0px',
@@ -44,66 +53,64 @@ function Appbar() {
                                     paddingRight: '0px',
                               },
                         }}>
-                             <img
-            src="./src/assets/NSS-symbol.png"
-            alt="NSS logo"
-            loading="lazy"
-            style={{
-              width: isMediumScreen ? (isLargeScreen ? '60px' : '50px') : '50px',
-            }}
-          />      
+                              <img
+                                    src="./src/assets/Images/NSS-symbol.png"
+                                    alt="NSS logo"
+                                    loading="lazy"
+                                    style={{
+                                          width: isMediumScreen ? (isLargeScreen ? '60px' : '50px') : '50px',
+                                    }}
+                              />
                               <Box sx={{ display: 'block' }}>
+                                    <Link to="/home" style={{ color: "inherit", textDecoration: 'none' }}>
+                                          <Typography
+                                                variant="h6"
+                                                noWrap
+                                                sx={{
+                                                      ml: 2,
+                                                      mr: 2,
+                                                      display: { xs: 'none', md: 'flex' },
+                                                      fontFamily: 'sans-serif',
+                                                      letterSpacing: '.1rem',
+                                                      fontSize: isSmallMobile ? '16px' : '1.25rem',
+                                                      color: 'inherit',
+                                                      textDecoration: 'none',
+                                                }}
+                                          >
+                                                NATIONAL SERVICE SCHEME
+                                          </Typography>
+                                          <Typography variant="caption" sx={{ display: { xs: 'none', md: 'flex' }, fontSize: '10px', ml: 2 }} gutterBottom>
+                                                BITS Pilani, Hyderabad Campus
+                                          </Typography>
+                                          <Typography
+                                                variant="h5"
+                                                noWrap
+                                                sx={{
+                                                      mr: 2,
+                                                      ml: 2,
+                                                      display: { xs: 'flex', md: 'none' },
+                                                      flexGrow: 1,
+                                                      fontFamily: 'sans-serif',
+                                                      letterSpacing: '0',
+                                                      color: 'inherit',
+                                                      fontSize: isSmallMobile ? '16px' : '1.25rem',
+                                                      textDecoration: 'none',
 
-                                   <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              ml: 2,
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'sans-serif',
-              letterSpacing: '.1rem',
-              fontSize: isSmallMobile ? '16px' : '1.25rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-                                          NATIONAL SERVICE SCHEME
-                                    </Typography>
-                                    <Typography variant="caption" sx={{ display: { xs: 'none', md: 'flex' }, fontSize: '10px', ml: 2 }} gutterBottom>
-                                          BITS Pilani, Hyderabad Campus
-                                    </Typography>
-                                    <Typography
-                                          variant="h5"
-                                          noWrap
-                                          component="a"
-                                          href="#app-bar-with-responsive-menu"
-                                          sx={{
-                                                mr: 2,
-                                                ml: 2,
-                                                display: { xs: 'flex', md: 'none' },
-                                                flexGrow: 1,
-                                                fontFamily: 'sans-serif',
-                                                letterSpacing: '0',
-                                                color: 'inherit',
-                                                fontSize: isSmallMobile ? '16px' : '1.25rem',
-                                                textDecoration: 'none',
-                                               
-                                          }}
-                                    >
-                                          NATIONAL SERVICE SCHEME
-                                    </Typography>
-                                    <Typography variant="caption" sx={{ display: { xs: 'flex', md: 'none' }, fontSize: '10px', ml: 2 }} gutterBottom>
-                                          BITS Pilani, Hyderabad Campus
-                                    </Typography>
+                                                }}
+                                          >
+                                                NATIONAL SERVICE SCHEME
+                                          </Typography>
+                                          <Typography variant="caption" sx={{ display: { xs: 'flex', md: 'none' }, fontSize: '10px', ml: 2 }} gutterBottom>
+                                                BITS Pilani, Hyderabad Campus
+                                          </Typography>
+                                    </Link>
+
                               </Box>
                               <Box sx={{ flexGrow: 1, justifyContent: 'right', display: { xs: 'none', lg: 'flex' } }}>
-                                    {pages.map((page) => (
+                                    {pagesInfo.map((pageInfo) => (
                                           <Button
-                                                key={page}
-                                                onClick={handleCloseNavMenu}
+                                                key={pageInfo.pageLink}
+                                                onClick={() => handleClick(pageInfo.pageLink)}
                                                 sx={{
                                                       my: 2, color: 'white', display: 'block',
                                                       ':hover': {
@@ -112,20 +119,20 @@ function Appbar() {
                                                       },
                                                 }}
                                           >
-                                                {page}
+                                                {pageInfo.page}
                                           </Button>
                                     ))}
                               </Box>
-                              <Box 
-                              
-                              sx={{
-                                   
-                                    flexGrow: 1,
-                                    justifyContent: 'right',
-                                    display: { xs: 'flex', lg: 'none' },
-                              }}>
+                              <Box
+
+                                    sx={{
+
+                                          flexGrow: 1,
+                                          justifyContent: 'right',
+                                          display: { xs: 'flex', lg: 'none' },
+                                    }}>
                                     <IconButton
-                                          sx={{padding:0}}
+                                          sx={{ padding: 0, marginRight: '5px' }}
                                           size="large"
                                           aria-label="account of current user"
                                           aria-controls="menu-appbar"
@@ -158,20 +165,30 @@ function Appbar() {
                                           }}
                                     >
                                           <MenuList >
-                                                {pages.map((page) => (
-                                                      <MenuItem key={page}
-                                                            onClick={handleCloseNavMenu}
-                                                            sx={{
-                                                                  background: '#353a40',
-                                                                  color: 'white',
-                                                                  ':hover': {
-                                                                        color: '#e0583b',
-                                                                        background: '#353a40',
-                                                                        cursor: 'pointer',
-                                                                  },
+                                                {pagesInfo.map((pageInfo) => (
+                                                      <Link to={pageInfo.pageLink}
+                                                            key={pageInfo.page}
+                                                            style={{
+                                                                  color: "inherit",
+                                                                  textDecoration: 'none'
                                                             }}>
-                                                            <Typography textAlign="right">{page}</Typography>
-                                                      </MenuItem>
+                                                            <MenuItem
+                                                                  onClick={() => {
+                                                                       
+                                                                        handleCloseNavMenu();
+                                                                      }}
+                                                                  sx={{
+                                                                        background: '#353a40',
+                                                                        color: 'white',
+                                                                        ':hover': {
+                                                                              color: '#e0583b',
+                                                                              background: '#353a40',
+                                                                              cursor: 'pointer',
+                                                                        },
+                                                                  }}>
+                                                                  <Typography textAlign="right">{pageInfo.page}</Typography>
+                                                            </MenuItem>
+                                                      </Link>
                                                 ))}
                                           </MenuList>
                                     </Menu>
