@@ -22,7 +22,6 @@ export default function Events(){
                               >
                                 <Box style={{
                                       backgroundColor: 'rgb(0, 0, 0, 0.2)',
-                                      padding: '10px',
                                       borderRadius: '5px',
                                       backdropFilter: 'blur(5px)',
                                     // width:'75%',
@@ -52,7 +51,7 @@ export default function Events(){
                               </Typography>
                               </Box> 
                               </Box>
-                              
+
                         </div>
 
                 
