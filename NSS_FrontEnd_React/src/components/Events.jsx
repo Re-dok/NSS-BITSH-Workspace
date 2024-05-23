@@ -1,26 +1,41 @@
 import EventsJumbotron from "./EventsJumbotron"
 import MajorDisplayCard from "./MajorDisplayCard"
 import Typography from '@mui/material/Typography'
+import { useState,useEffect } from "react"
+import CardDataFile from '../assets/Data/EventsCardsData.json'
+import { LinearProgress } from "@mui/material"
 
 export default function Events(){
+
+const [cardDatalocal, setCardDatalocal] = useState([]);
+  useEffect(() => {
+      setCardDatalocal(CardDataFile.cardData);
+}, []);
+//app doesnt break while fetching
+if (cardDatalocal.length === 0) {
+     
+      return <LinearProgress />;
+      
+    }
+
       return (
             <>
-                  <EventsJumbotron/>
+            <EventsJumbotron/>
                   <Typography variant="h3" 
                               color="white"
                               textAlign={"center"}
                               margin={"15px"}>
-                  Latest</Typography>
-                  <MajorDisplayCard 
-                                          imgL='./src/assets/Images/diw4.jpg'
-                  />
-                    <MajorDisplayCard     
-                                          pCol='white' 
-                                          bgCol='#333232'
-                                          headOneCol='#e66137'
-                                          headTwoCol='white'
-                                          imgL='./src/assets/Images/diw4.jpg'
-                  />
+                  Latest
+                  </Typography>
+            {cardDatalocal.map((cardData, index) => (
+            <MajorDisplayCard 
+                  key={index}
+                  imgL={cardData.contentImageLink}
+                  contentYear={cardData.contentYear}
+                  contentHeading={cardData.contentHeading}
+                  contentText={cardData.contentText}
+        />
+      ))}
             </>     
       )
 } 

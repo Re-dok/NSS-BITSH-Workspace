@@ -5,8 +5,17 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box} from '@mui/material';
 import CustomButton from './CustomButton';
+// import {Text} from Text;
+// import CardData from '../assets/Data/EventsCardsData.json'
 
 export default function MajorDisplayCard(props) {
+  // const [cardData, setCardData] = React.useState([]);
+
+  // React.useEffect(() => {
+  //   setCardData(CardData.cardData);
+  //   console.log(cardData.at(0));
+  // }, []);
+
   return (
       <Box paddingX={"5%"} paddingY={'15px'}>
     <Card style={{ border: "none", boxShadow: "none" }}>
@@ -16,7 +25,7 @@ export default function MajorDisplayCard(props) {
                               paddingX:'5px',
                               paddingBottom:'20px',
                               borderRadius:0,
-                              justfyContent:'center',
+                              justifyContent: 'space-between',
                               alignItems:'center'      
                         }}border={0}
                               sx={{
@@ -34,25 +43,23 @@ export default function MajorDisplayCard(props) {
                       component="div"
                       fontSize={'2rem'}
                       color={'#e66137'}>
-            2022
+            {props.contentYear}
           </Typography>
           <Typography gutterBottom 
                       variant="h5" 
                       component="div"
                       fontSize={'2.5rem'}
                       color={'white'}>
-            CLEANLINESS DRIVE
+            {props.contentHeading}
           </Typography>
-          <Typography variant="body2" 
+          
+          <Typography variant="body2"
                       color={'white'}
                       paddingY={'10px'}
                       fontSize={'1rem'}
                       // textAlign={'right'}//here
                       >
-            Lack of hygiene results in a variety of ailments, illnesses,
-and fly and mosquito breeding grounds.
-Therefore, on NSS Day, the proud Bitsians took the initiative to clean the campus.
-
+            {props.contentText}
           </Typography>
     
     <CustomButton/>
