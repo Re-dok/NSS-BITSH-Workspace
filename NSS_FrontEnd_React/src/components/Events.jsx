@@ -11,11 +11,10 @@ const [cardDatalocal, setCardDatalocal] = useState([]);
   useEffect(() => {
       setCardDatalocal(CardDataFile.cardData);
 }, []);
-//app doesnt break while fetching
+
+//app doesnt break while fetching and displays a loading "bar"
 if (cardDatalocal.length === 0) {
-     
       return <LinearProgress />;
-      
     }
 
       return (
@@ -30,6 +29,7 @@ if (cardDatalocal.length === 0) {
             {cardDatalocal.map((cardData, index) => (
             <MajorDisplayCard 
                   key={index}
+                  index={index}
                   imgL={cardData.contentImageLink}
                   contentYear={cardData.contentYear}
                   contentHeading={cardData.contentHeading}

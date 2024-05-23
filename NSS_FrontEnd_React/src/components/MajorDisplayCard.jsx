@@ -5,16 +5,15 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box} from '@mui/material';
 import CustomButton from './CustomButton';
-// import {Text} from Text;
-// import CardData from '../assets/Data/EventsCardsData.json'
+import { useEffect,useState } from 'react';
 
 export default function MajorDisplayCard(props) {
-  // const [cardData, setCardData] = React.useState([]);
-
-  // React.useEffect(() => {
-  //   setCardData(CardData.cardData);
-  //   console.log(cardData.at(0));
-  // }, []);
+  
+  //fetches whether this card should be toword right or left 
+  const [leftwords,setLeftwords]=useState(true);
+  useEffect(()=>{
+    setLeftwords(props.index%2===0)
+  },[])
 
   return (
       <Box paddingX={"5%"} paddingY={'15px'}>
@@ -29,13 +28,15 @@ export default function MajorDisplayCard(props) {
                               alignItems:'center'      
                         }}border={0}
                               sx={{
-                                    flexDirection: { xs: 'column', lg: 'row' }//HERE
+                                    flexDirection: { xs: 'column',
+                                    lg: leftwords ? 'row' : 'row-reverse' 
+                                                    }
                                   }}>
         <CardContent
               style={{
                 display:'inline-flex',
                 flexDirection:'column',
-                // alignItems:'end' //here 
+                alignItems:leftwords?'start':'end'
               }}
         >
         <Typography gutterBottom 
@@ -43,23 +44,29 @@ export default function MajorDisplayCard(props) {
                       component="div"
                       fontSize={'2rem'}
                       color={'#e66137'}>
+
             {props.contentYear}
+
           </Typography>
           <Typography gutterBottom 
                       variant="h5" 
                       component="div"
                       fontSize={'2.5rem'}
                       color={'white'}>
+
             {props.contentHeading}
+
           </Typography>
           
           <Typography variant="body2"
                       color={'white'}
                       paddingY={'10px'}
                       fontSize={'1rem'}
-                      // textAlign={'right'}//here
+                      textAlign={leftwords ? 'left' : 'right'}
                       >
+
             {props.contentText}
+
           </Typography>
     
     <CustomButton/>
@@ -67,11 +74,13 @@ export default function MajorDisplayCard(props) {
         </CardContent>
         <CardMedia
           component="img"
+
           image={props.imgL}
+
           sx={{width:'48%',
                minWidth:'600px',
       }}
-          alt="green iguana"
+          alt="Event Image"
           />
       </Box>
     </Card>
