@@ -5,7 +5,7 @@ import React from 'react';
 import Carousal from './components/Carousal';
 import Events from './components/Events';
 // import AboutUs from './components/AboutUs'; // Import AboutUs component
-
+// import MajorDisplayCard from './components/MajorDisplayCard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -16,8 +16,7 @@ function App() {
         <div style={{marginBottom:'70px'}}></div>
         <Routes>
           <Route path='/home' element={<Carousal/>}/>
-          <Route path='/events' element={<Events/>}/>
-          {/* <Route path='/AboutUs' element={<AboutUs/>}/> */}
+          <Route path='events/' element={<Events/>}/>
         </Routes>
         <Footer/>
       </Router>
