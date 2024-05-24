@@ -20,17 +20,31 @@ if (cardDatalocal.length === 0) {
       return (
             <>
             <Jumbotron
-             heading={'Our '}
-             heightlighterHeading={<span key="highlight" style={{color:"#f1633b"}}>Events</span>
+            
+             heading={["We Are NSS \n",
+                        <span 
+                              style={{color:"#f1633b"}}>
+                              BITS Hyderabad
+                        </span>]
             }
-             bodyText={['Take a ride through our plethora of events and witness the journey we made so far!']}
-             backgroundImageLink={'./src/assets/Images/eventsBg.jpg'}
-                             />
+             bodyText={["We are a family of 150 dedicated volunteer work force who believe that welfare of an individual is ultimately the welfare of entire nation. We are working hard to ensure that everyone in our society who is needy gets the every possible help to lead a dignified life. NSS BPHC ",
+             <span style={{
+                              color:"#f1633b",
+                              display:"contents"
+                        }}>NOT ME BUT YOU!</span>]}
+             backgroundImageLink={'./src/assets/Images/bitsh.jpg'}
+            />
+
                   <Typography variant="h4" 
                               color="white"
                               textAlign={"center"}
-                              margin={"15px"}>
-                  Latest
+                              margin={"15px"}
+                              sx={{
+
+                                    textDecoration: 'underline'
+                              }}
+                              >
+                  About Us
                   </Typography>
             {cardDatalocal.map((cardData, index) => (
             <MajorDisplayCard 

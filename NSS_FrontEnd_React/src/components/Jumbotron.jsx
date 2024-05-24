@@ -1,10 +1,10 @@
 import { Box,Typography} from "@mui/material";
 
-export default function EventsJumbotron(){
+export default function Jumbotron(props){
       return(
             <>
                         <div style={{
-                              backgroundImage:`url(./src/assets/Images/eventsBg.jpg)`,
+                              backgroundImage:'url('+props.backgroundImageLink+')',
                               backgroundSize:'cover',
                               backgroundPosition: 'center',
                               Width: '100%',
@@ -22,6 +22,7 @@ export default function EventsJumbotron(){
                                 <Box style={{
                                     backgroundColor: 'rgb(0, 0, 0, 0.2)',
                                     borderRadius: '5px',
+                                    maxWidth:'50%',
                                     backdropFilter: 'blur(5px)',
                                     padding:'2.5%',
                                     display:'flex',
@@ -29,14 +30,17 @@ export default function EventsJumbotron(){
                                     justifyContent:'center',
                                     alignItems:'center'
                               }} >
-                                         <Typography variant="h2" color="white"sx={{
+                                         <Typography variant="h2" 
+                                                     textAlign={'center'}
+                                                     color="white"sx={{
                                                  '@media (max-height: 320px), (max-width: 480px)': {
                                                             fontSize:'40px'
                                                       }}}>
-                                                Our <span style={{color:"#f1633b"}}>Events</span>
+                                               {props.heading}{props.heightlighterHeading}
                                     </Typography>
                                     <Typography variant="caption" 
                                                 color='white'
+                                                // display={"inline-flex"}
                                                 sx={{
                                                       display:'flex',
                                                       fontSize: '15px',
@@ -45,8 +49,8 @@ export default function EventsJumbotron(){
                                                       },
                                                       justifyContent:'center'}}
                                                 gutterBottom>
-                                          Take a ride through our plethora of events and witness the journey we made so far!
-                              </Typography>
+                                          {props.bodyText}
+                              </Typography>     
                               </Box> 
                               </Box>
 
