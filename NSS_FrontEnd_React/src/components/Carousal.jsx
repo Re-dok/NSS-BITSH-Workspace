@@ -41,6 +41,7 @@ const imageUrl = `${imagesPath}${imagesNames[index]}`
             setIndex((index+1)%imagesNames.length);
             setDirection('slide-right');
       };
+
       const handleKeyDown = (event) => {
             if (event.key === 'ArrowLeft') {
                 slideLeft();
@@ -48,12 +49,14 @@ const imageUrl = `${imagesPath}${imagesNames[index]}`
                 slideRight();
             }
         };
+
         useEffect(() => {
           window.addEventListener('keydown', handleKeyDown);
             return () => {
                 window.removeEventListener('keydown', handleKeyDown);
             };
         });
+
       return (
             <Box style={{height:'calc(100vh - 70px)'}}className="image-slider">
                   <Card style={{height: 'calc(100vh - 70px)',borderRadius:"0"}} className="image-wrapper">
@@ -94,7 +97,7 @@ const imageUrl = `${imagesPath}${imagesNames[index]}`
 
                         <TransitionGroup childFactory={childFactory(direction)}>
                         <CSSTransition key={index}
-                                       timeout={800}
+                                       timeout={495}
                                        classNames={direction}
                                        >
 

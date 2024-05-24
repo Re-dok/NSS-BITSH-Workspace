@@ -1,5 +1,4 @@
-import { Box, Table, Typography, Button, SliderThumb, sliderClasses } from "@mui/material";
-
+import { Box,Typography} from "@mui/material";
 
 export default function EventsJumbotron(){
       return(
