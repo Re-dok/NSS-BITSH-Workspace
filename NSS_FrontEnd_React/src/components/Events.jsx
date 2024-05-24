@@ -36,6 +36,7 @@ if (cardDatalocal.length === 0) {
                   contentText={cardData.contentText}
         />
       ))}
+
             </>     
       )
 } 

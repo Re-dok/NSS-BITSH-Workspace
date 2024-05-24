@@ -3,44 +3,53 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Box, Container } from '@mui/material';
+import { Box} from '@mui/material';
 import CustomButton from './CustomButton';
 import { useEffect, useState } from 'react';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-
-import "../assets/Styles/DisplayCard.css";
-
-const childFactory = (direction) => (child) => {
-  return React.cloneElement(child, {
-    classNames: direction,
-  });
-};
-
 
 
 export default function MajorDisplayCard(props) {
-  const [contentDirection, setContentDirection] = useState("FromLeft");
-  const [imageDirection, setImageDirection] = useState("iFromRight");
+
+  const [trigger, setTrigger] = useState(false);
+  
+  const containerRef = React.useRef(null);
+  
+  const changeTriggerFuntion = (entries) => {
+    const [entry] = entries;
+    setTrigger(entry.isIntersecting);   
+  }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(changeTriggerFuntion, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5  
+    });
+    
+    if (containerRef.current)
+      observer.observe(containerRef.current);
+
+    return () => {
+      if (containerRef.current)
+        observer.unobserve(containerRef.current);
+    }
+  }, []);
 
   // Determines whether this card should be toward the right or left
   const [leftwards, setLeftwards] = useState(true);
   useEffect(() => {
     const isLeft = props.index % 2 === 0;
     setLeftwards(isLeft);
-    setContentDirection(isLeft ? "FromLeft" : "FromRight");
-    setImageDirection(isLeft ? "iFromRight" : "iFromLeft");
   }, [props.index]);
 
-  const [trigger, setTrigger] = useState(false);
-
   return (
-    <Box paddingX={"5%"} paddingY={'15px'}>
-      <button onClick={() => setTrigger(!trigger)}>Click to trigger</button>
+    <Box paddingX={"5%"} paddingY={'15px'} margin={'15px'}>
+     
       <Card style={{ border: "none", boxShadow: "none" }}>
         <Box
+          ref={containerRef}
           style={{
             display: 'flex',
-            flexGrow: 1,
             backgroundColor: '#333232',
             paddingX: '5px',
             paddingBottom: '20px',
@@ -56,68 +65,60 @@ export default function MajorDisplayCard(props) {
             }
           }}
         >
-          {/* container is needed so that the flex propertes are not disturbed by the TransitonGroups "display" property */}
-          <Container>
-          <TransitionGroup childFactory={childFactory(contentDirection)}>
-            <CSSTransition key={trigger} timeout={500} classNames={contentDirection}>
-              <CardContent
-                style={{
-                  display: 'inline-flex',
-                  flexDirection: 'column',
-                  alignItems: leftwards ? 'start' : 'end'
-                }}
-              >
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  fontSize={'2rem'}
-                  color={'#e66137'}
-                >
-                  {props.contentYear}
-                </Typography>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  fontSize={'2.5rem'}
-                  color={'white'}
-                >
-                  {props.contentHeading}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color={'white'}
-                  paddingY={'10px'}
-                  fontSize={'1rem'}
-                  textAlign={leftwards ? 'left' : 'right'}
-                >
-                  {props.contentText}
-                </Typography>
-                <CustomButton />
-              </CardContent>
-            </CSSTransition>
-          </TransitionGroup>
-          </Container>
-
-          {/* container is needed so that the flex propertes are not disturbed by the TransitonGroups "display" property */}
-          <Container>
-          <TransitionGroup childFactory={childFactory(imageDirection)}>
-            <CSSTransition key={trigger} timeout={500} classNames={imageDirection}>
+          <CardContent
+            style={{
+              display: 'inline-flex',
+              flexDirection: 'column',
+              alignItems: leftwards ? 'start' : 'end',
+              transform: trigger ? 'translateX(0)' : leftwards ? 'translateX(-100%)' : 'translateX(100%)',
+              opacity: trigger ? 1 : 0,
+              transition: 'transform 800ms ease-in-out, opacity 800ms ease-in-out'
+            }}
+          >
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontSize={'2rem'}
+              color={'#e66137'}
+            >
+              {props.contentYear}
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontSize={'2.5rem'}
+              color={'white'}
+            >
+              {props.contentHeading}
+            </Typography>
+            <Typography
+              variant="body2"
+              color={'white'}
+              paddingY={'10px'}
+              fontSize={'1rem'}
+              textAlign={leftwards ? 'left' : 'right'}
+            >
+              {props.contentText}
+            </Typography>
             
-              <CardMedia
-                component="img"
-                image={props.imgL}
-                sx={{
-                  width: '48%',
-                  minWidth: '600px',
-                }}
-                alt="Event Image"
-              />
-             
-            </CSSTransition>
-          </TransitionGroup>
-          </Container>
+            <CustomButton />
+
+          </CardContent>
+
+          <CardMedia
+            component="img"
+            image={props.imgL}
+            sx={{
+              width: '48%',
+              minWidth: '600px',
+              transform: trigger ? 'translateX(0)' : leftwards ? 'translateX(100%)' : 'translateX(-100%)',
+              opacity: trigger ? 1 : 0,
+              transition: 'transform 800ms ease-in-out, opacity 800ms ease-in-out'
+            }}
+            alt="Event Image"
+          />
         </Box>
       </Card>
     </Box>
