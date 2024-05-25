@@ -43,7 +43,9 @@ export default function MajorDisplayCard(props) {
   }, [props.index]);
 
   return (
-    <Box paddingX={"5%"} paddingY={'15px'} margin={'15px'}>
+    <Box 
+    id={props.id}
+    paddingX={"5%"} paddingY={'15px'} margin={'15px'}>
      
       <Card style={{boxShadow: "none" }}>
         <Box
@@ -107,7 +109,7 @@ export default function MajorDisplayCard(props) {
             
             {
               props.cardtheme!='light'&&
-                <CustomButton />
+                <CustomButton contentButtonLink={props.contentButtonLink}/>
             }
             
 
@@ -119,6 +121,7 @@ export default function MajorDisplayCard(props) {
             sx={{
               width: '48%',
               minWidth: '600px',
+                  
               transform: trigger ? 'translateX(0)' : leftwards ? 'translateX(100%)' : 'translateX(-100%)',
               opacity: trigger ? 1 : 0,
               transition: 'transform 800ms ease-in-out, opacity 800ms ease-in-out'

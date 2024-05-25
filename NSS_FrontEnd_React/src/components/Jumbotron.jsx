@@ -23,7 +23,7 @@ export default function Jumbotron(props){
                                     backgroundColor: 'rgb(0, 0, 0, 0.2)',
                                     borderRadius: '5px',
                                     maxWidth:'50%',
-                                    backdropFilter: 'blur(5px)',
+                                    backdropFilter: 'blur(2px)',
                                     padding:'2.5%',
                                     display:'flex',
                                     flexDirection:'column',

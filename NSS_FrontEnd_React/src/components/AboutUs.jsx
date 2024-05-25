@@ -2,11 +2,24 @@ import Jumbotron from "./Jumbotron"
 import MajorDisplayCard from "./MajorDisplayCard"
 import Typography from '@mui/material/Typography'
 import { useState,useEffect } from "react"
-import CardDataFile from '../assets/Data/EventsCardsData.json'
+import CardDataFile from '../assets/Data/AboutUsCardsData.json'
 import { LinearProgress } from "@mui/material"
+import { useLocation } from 'react-router-dom';
 
-// import "../assets/Styles/AboutUs.css"
 export default function AboutUs(){
+
+
+      // const location = useLocation();
+
+      // useEffect(() => {
+      //   if (location.hash) {
+      //     const element = document.getElementById(location.hash.substring(1));
+      //     if (element) {
+      //       element.scrollIntoView({ behavior: 'smooth' });
+      //     }
+      //   }
+      // }, [location]);
+
 
 const [cardDatalocal, setCardDatalocal] = useState([]);
   useEffect(() => {
@@ -33,7 +46,7 @@ if (cardDatalocal.length === 0) {
                               color:"#f1633b",
                               display:"contents"
                         }}>NOT ME BUT YOU!</span>]}
-             backgroundImageLink={'./src/assets/Images/bitsh.jpg'}
+             backgroundImageLink={'./src/assets/Images/spc.jpg'}
             />
 
                   <Typography variant="h4" 
@@ -51,10 +64,8 @@ if (cardDatalocal.length === 0) {
             <MajorDisplayCard 
                   key={index}
                   index={index}
-                  imgL={cardData.contentImageLink}
                   cardtheme="light"
-                  contentYear=""
-                  contentHeading=""
+                  imgL={cardData.contentImageLink}
                   contentText={cardData.contentText}
         />
       ))}

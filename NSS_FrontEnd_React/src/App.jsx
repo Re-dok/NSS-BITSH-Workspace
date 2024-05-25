@@ -7,6 +7,7 @@ import Events from './components/Events';
 import AboutUs from './components/AboutUs'; // Import AboutUs component
 // import MajorDisplayCard from './components/MajorDisplayCard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AllAboutUs from './components/AllAboutUs';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/home' element={<Carousal/>}/>
           <Route path='events/' element={<Events/>}/>
           <Route path='aboutUs/'element={<AboutUs/>}/>
+          <Route path='allAboutUs/'element={<AllAboutUs/>}/>
         </Routes>
         <Footer/>
       </Router>
