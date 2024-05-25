@@ -1,0 +1,43 @@
+{
+      "FooterCardData":[
+                              {
+                                    "cardTitle":"Our Initiative",
+                                    "cardLinksList":[
+                                          ["Anemia Screening",
+                                          "https://www.facebook.com/nss.bphc/posts/1354512864741119"],
+                                          ["Self Defence Workshop",
+                                          "https://www.facebook.com/nss.bphc/posts/1248791461979927"],
+                                          ["Mother's Day Event",
+                                          "https://www.facebook.com/nss.bphc/posts/1416556738536731"],
+                                          ["Mother's Day Event",
+                                          "https://www.facebook.com/groups/bphcshoutbox/permalink/3430148453714408"]
+                                    ]
+                              },
+                              {
+                                    "cardTitle":"Other Projects",
+                                    "cardLinksList":[
+                                          ["Magazine-2018",
+                                          "https://drive.google.com/file/d/1L1JEWtBN1z2-zqafU9j6huj8PKbm1WoD/view"],
+                                          ["Visit to Akshaya Patra",
+                                          "https://www.facebook.com/nss.bphc/posts/1057351637790578"],
+                                          ["Village Surveys",
+                                          "https://www.facebook.com/nss.bphc/posts/1184585721733835"],
+                                          ["Plastic Free BPHC",
+                                          "https://www.facebook.com/groups/bphcshoutbox/permalink/2945566002172658"]
+                                    ]
+                              },
+                              {
+                                    "cardTitle":"Follow Us",
+                                    "cardLinksList":[
+                                          ["Magazine-2018",
+                                          "https://drive.google.com/file/d/1L1JEWtBN1z2-zqafU9j6huj8PKbm1WoD/view"],
+                                          ["Visit to Akshaya Patra",
+                                          "https://www.facebook.com/nss.bphc/posts/1057351637790578"],
+                                          ["Village Surveys",
+                                          "https://www.facebook.com/nss.bphc/posts/1184585721733835"],
+                                          ["Plastic Free BPHC",
+                                          "https://www.facebook.com/groups/bphcshoutbox/permalink/2945566002172658"]
+                                    ]
+                              }
+      ]
+}
