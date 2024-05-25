@@ -45,17 +45,19 @@ export default function MajorDisplayCard(props) {
   return (
     <Box paddingX={"5%"} paddingY={'15px'} margin={'15px'}>
      
-      <Card style={{ border: "none", boxShadow: "none" }}>
+      <Card style={{boxShadow: "none" }}>
         <Box
           ref={containerRef}
           style={{
             display: 'flex',
-            backgroundColor: '#333232',
+            backgroundColor:props.cardtheme=='light'?'white':'#333232',
             paddingX: '5px',
             paddingBottom: '20px',
             borderRadius: 0,
             justifyContent: 'space-between',
-            alignItems: 'center'
+            alignItems: 'center',
+            borderLeft:leftwards & props.cardtheme=='light'?'solid black 2px':'solid 0',
+            borderRight:leftwards || props.cardtheme!='light'?'0':'solid black 2px'
           }}
           border={0}
           sx={{
@@ -72,7 +74,7 @@ export default function MajorDisplayCard(props) {
               alignItems: leftwards ? 'start' : 'end',
               transform: trigger ? 'translateX(0)' : leftwards ? 'translateX(-100%)' : 'translateX(100%)',
               opacity: trigger ? 1 : 0,
-              transition: 'transform 800ms ease-in-out, opacity 800ms ease-in-out'
+              transition: 'transform 800ms ease-in-out, opacity 800ms ease-in-out',
             }}
           >
             <Typography
@@ -95,7 +97,7 @@ export default function MajorDisplayCard(props) {
             </Typography>
             <Typography
               variant="body2"
-              color={'white'}
+              color={props.cardtheme=='light'?'black':'white'}
               paddingY={'10px'}
               fontSize={'1rem'}
               textAlign={leftwards ? 'left' : 'right'}
@@ -103,7 +105,11 @@ export default function MajorDisplayCard(props) {
               {props.contentText}
             </Typography>
             
-            <CustomButton />
+            {
+              props.cardtheme!='light'&&
+                <CustomButton />
+            }
+            
 
           </CardContent>
 

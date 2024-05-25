@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path='/home' element={<Carousal/>}/>
           <Route path='events/' element={<Events/>}/>
-          <Route path='aboutUs/' element={<AboutUs/>}/>
+          <Route path='aboutUs/'element={<AboutUs/>}/>
         </Routes>
         <Footer/>
       </Router>

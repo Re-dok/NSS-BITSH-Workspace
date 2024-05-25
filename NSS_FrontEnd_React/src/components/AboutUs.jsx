@@ -5,7 +5,8 @@ import { useState,useEffect } from "react"
 import CardDataFile from '../assets/Data/EventsCardsData.json'
 import { LinearProgress } from "@mui/material"
 
-export default function Events(){
+// import "../assets/Styles/AboutUs.css"
+export default function AboutUs(){
 
 const [cardDatalocal, setCardDatalocal] = useState([]);
   useEffect(() => {
@@ -36,7 +37,7 @@ if (cardDatalocal.length === 0) {
             />
 
                   <Typography variant="h4" 
-                              color="white"
+                              color="black"
                               textAlign={"center"}
                               margin={"15px"}
                               sx={{
@@ -51,8 +52,9 @@ if (cardDatalocal.length === 0) {
                   key={index}
                   index={index}
                   imgL={cardData.contentImageLink}
-                  contentYear={cardData.contentYear}
-                  contentHeading={cardData.contentHeading}
+                  cardtheme="light"
+                  contentYear=""
+                  contentHeading=""
                   contentText={cardData.contentText}
         />
       ))}
