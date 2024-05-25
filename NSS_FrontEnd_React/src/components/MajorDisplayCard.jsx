@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Box} from '@mui/material';
+import { Box } from '@mui/material';
 import CustomButton from './CustomButton';
 import { useEffect, useState } from 'react';
 
@@ -11,21 +11,21 @@ import { useEffect, useState } from 'react';
 export default function MajorDisplayCard(props) {
 
   const [trigger, setTrigger] = useState(false);
-  
+
   const containerRef = React.useRef(null);
-  
+
   const changeTriggerFuntion = (entries) => {
     const [entry] = entries;
-    setTrigger(entry.isIntersecting);   
+    setTrigger(entry.isIntersecting);
   }
 
   useEffect(() => {
     const observer = new IntersectionObserver(changeTriggerFuntion, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.35  
+      threshold: 0.35
     });
-    
+
     if (containerRef.current)
       observer.observe(containerRef.current);
 
@@ -43,23 +43,29 @@ export default function MajorDisplayCard(props) {
   }, [props.index]);
 
   return (
-    <Box 
-    id={props.id}
-    paddingX={"5%"} paddingY={'15px'} margin={'15px'}>
-     
-      <Card style={{boxShadow: "none" }}>
+    <Box
+      id={props.id}
+      paddingX={"5%"} paddingY={'15px'} margin={'15px'}>
+
+      <Card style={{ boxShadow: "none" }}>
         <Box
           ref={containerRef}
           style={{
             display: 'flex',
-            backgroundColor:props.cardtheme=='light'?'white':'#333232',
+            backgroundColor: props.cardtheme == 'light' ? 'white' : '#333232',
             paddingX: '5px',
             paddingBottom: '20px',
             borderRadius: 0,
             justifyContent: 'space-between',
             alignItems: 'center',
-            borderLeft:leftwards & props.cardtheme=='light'?'solid black 2px':'solid 0',
-            borderRight:leftwards || props.cardtheme!='light'?'0':'solid black 2px'
+            borderLeft:
+              props.transtionsActive == 'false' ?
+                '0' :
+                leftwards & props.cardtheme == 'light' ? 'solid black 2px' : 'solid 0',
+            borderRight:
+              props.transtionsActive == 'false' ?
+                '0' :
+                leftwards || props.cardtheme != 'light' ? '0' : 'solid black 2px'
           }}
           border={0}
           sx={{
@@ -74,9 +80,18 @@ export default function MajorDisplayCard(props) {
               display: 'inline-flex',
               flexDirection: 'column',
               alignItems: leftwards ? 'start' : 'end',
-              transform: trigger ? 'translateX(0)' : leftwards ? 'translateX(-100%)' : 'translateX(100%)',
-              opacity: trigger ? 1 : 0,
-              transition: 'transform 800ms ease-in-out, opacity 800ms ease-in-out',
+              transform:
+                props.transtionsActive == 'false' ?
+                  'none' :
+                  trigger ? 'translateX(0)' : leftwards ? 'translateX(-100%)' : 'translateX(100%)',
+              opacity: 
+              props.transtionsActive=='false'?
+              '1':
+              trigger ? 1 : 0,
+              transition:
+                props.transtionsActive == 'false' ?
+                  'none' :
+                  'transform 800ms ease-in-out, opacity 800ms ease-in-out',
             }}
           >
             <Typography
@@ -93,25 +108,27 @@ export default function MajorDisplayCard(props) {
               variant="h5"
               component="div"
               fontSize={'2.5rem'}
-              color={'white'}
+              color={props.cardtheme == 'light' ? 'black' : 'white'}
             >
               {props.contentHeading}
             </Typography>
             <Typography
               variant="body2"
-              color={props.cardtheme=='light'?'black':'white'}
+              color={props.cardtheme == 'light' ? 'black' : 'white'}
               paddingY={'10px'}
               fontSize={'1rem'}
               textAlign={leftwards ? 'left' : 'right'}
             >
               {props.contentText}
             </Typography>
-            
+
             {
-              props.cardtheme!='light'&&
-                <CustomButton contentButtonLink={props.contentButtonLink}/>
+              (props.cardtheme != 'light') &&
+              <CustomButton 
+              buttonText={props.buttonText}
+              contentButtonLink={props.contentButtonLink} />
             }
-            
+
 
           </CardContent>
 
@@ -121,10 +138,18 @@ export default function MajorDisplayCard(props) {
             sx={{
               width: '48%',
               minWidth: '600px',
-                  
-              transform: trigger ? 'translateX(0)' : leftwards ? 'translateX(100%)' : 'translateX(-100%)',
-              opacity: trigger ? 1 : 0,
-              transition: 'transform 800ms ease-in-out, opacity 800ms ease-in-out'
+              transform:
+                props.transtionsActive == 'false' ?
+                  'none' : trigger ?
+                    'translateX(0)' : leftwards ?
+                      'translateX(100%)' : 'translateX(-100%)',
+              opacity: props.transtionsActive == 'false' ?
+                '1' :
+                trigger ? 1 : 0,
+              transition:
+                props.transtionsActive == 'false' ?
+                  'none' :
+                  'transform 800ms ease-in-out, opacity 800ms ease-in-out'
             }}
             alt="Event Image"
           />

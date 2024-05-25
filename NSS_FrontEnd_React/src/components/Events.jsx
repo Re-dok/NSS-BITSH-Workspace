@@ -35,7 +35,8 @@ if (cardDatalocal.length === 0) {
             {cardDatalocal.map((cardData, index) => (
             <MajorDisplayCard 
                   key={index}
-                  contentButtonLink={'../allAboutUs#'+index}
+                  buttonText='Read More'
+                  contentButtonLink={'../allEvents#'+index}
                   index={index}
                   imgL={cardData.contentImageLink}
                   contentYear={cardData.contentYear}

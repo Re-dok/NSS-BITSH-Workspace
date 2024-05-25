@@ -16,8 +16,12 @@ import { Link, useNavigate } from 'react-router-dom';
 const pagesInfo = [{ page: 'Home', pageLink: '/home' },
 { page: 'Events', pageLink: '/events' },
 { page: 'About Us', pageLink: '/aboutUs' },
-{ page: 'Office Bearers', pageLink: '/officeBearers' },
-{ page: 'Contact Us', pageLink: '/contactUs' }];
+{ page: 'Office Bearers', pageLink: '/officeBearers' }
+
+//add this in the future,req backend
+// ,{ page: 'Contact Us', pageLink: '/contactUs' }
+
+];
 
 function Appbar() {
       const [anchorElNav, setAnchorElNav] = React.useState(null);
