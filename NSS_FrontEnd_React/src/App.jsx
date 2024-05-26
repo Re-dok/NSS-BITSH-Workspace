@@ -16,9 +16,9 @@ function App() {
         <div style={{marginBottom:'70px'}}></div>
         <Routes>
           <Route path='/home' element={<Carousal/>}/>
-          {/* <Route path='events/' element={<Events/>}/> */}
-          {/* <Route path='aboutUs/'element={<AboutUs/>}/> */}
-          {/* <Route path='allEvents/'element={<AllEvents/>}/> */}
+          <Route path='events/' element={<Events/>}/>
+          <Route path='aboutUs/'element={<AboutUs/>}/>
+          <Route path='allEvents/'element={<AllEvents/>}/>
         </Routes>
         <Footer/>
       </Router>
