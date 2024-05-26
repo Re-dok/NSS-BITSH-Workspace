@@ -43,7 +43,6 @@ return (
                                                       fontSize: 22,
                                                       color: 'white',
                                                       backgroundColor: '#e0583b',
-                                                      // textAlign:'center'
                                                 }}
                                                 
                                                 component="div">

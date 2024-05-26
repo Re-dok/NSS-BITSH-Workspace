@@ -22,7 +22,7 @@ export default function Jumbotron(props){
                                 <Box style={{
                                     backgroundColor: 'rgb(0, 0, 0, 0.2)',
                                     borderRadius: '5px',
-                                    maxWidth:'50%',
+                                    maxWidth:'70%',
                                     backdropFilter: 'blur(2px)',
                                     padding:'2.5%',
                                     display:'flex',
@@ -32,15 +32,15 @@ export default function Jumbotron(props){
                               }} >
                                          <Typography variant="h2" 
                                                      textAlign={'center'}
-                                                     color="white"sx={{
-                                                 '@media (max-height: 320px), (max-width: 480px)': {
+                                                     color="white"
+                                                     sx={{
+                                                      '@media (max-height: 320px), (max-width: 480px)': {
                                                             fontSize:'40px'
                                                       }}}>
                                                {props.heading}{props.heightlighterHeading}
                                     </Typography>
                                     <Typography variant="caption" 
                                                 color='white'
-                                                // display={"inline-flex"}
                                                 sx={{
                                                       display:'flex',
                                                       fontSize: '15px',
