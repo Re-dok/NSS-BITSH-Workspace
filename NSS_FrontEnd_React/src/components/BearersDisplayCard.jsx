@@ -1,11 +1,11 @@
-import { Card, Container, Typography } from '@mui/material';
+import { Card,Typography } from '@mui/material';
 import * as React from 'react';
 import { useMediaQuery } from '@mui/material';
-
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-export default function BearersDisplayCard(){
-      const isLargeScreen = useMediaQuery('(min-width:960px)');
+
+
+export default function BearersDisplayCard(props){
       const isSmallMobile = useMediaQuery('(min-width:320px) and (max-width:480px)');
       return(
       <Card sx={{
@@ -20,39 +20,43 @@ export default function BearersDisplayCard(){
      }}>
            <CardMedia
            component="img"
-           image='../src/assets/Images/abt2.jpg'
+           image='../src/assets/Images/abt2.jpg'//here
            sx={{
                  maxWidth:'200px',
                  maxHeight:'400px',
                  marginBottom:'15px',
-                 borderRadius:'5px'//here
+                 borderRadius:props.isProf?'5px':'100px'
            }}
            />
      <Typography variant="subtitle1" fontSize={isSmallMobile?'1rem':'1.5rem'} color="black">
-           Prof. Sandeep S. Deshmukh
-           {/* here */}
+           {props.name}
+         
      </Typography>
-     <Typography variant="subtitle2" fontSize={isSmallMobile?'1rem':'1.5rem'} color="black">
-           Faculty Co-ordinator
-           {/* here */}
+     <Typography variant="subtitle2" fontSize={isSmallMobile?'1rem':props.isProf?'1.2rem':'1rem'} color="black">
+           {props.post}
+          
      </Typography>
-     <Typography variant="body1" fontSize={isSmallMobile?'0.5rem':'1rem'} color="black">
-           Associate Dean, Student Welfare, BITS Pilani, Hyderabad Campus
-           {/* here */}
+     <Typography variant="body1" fontSize={isSmallMobile?'0.8rem':'1rem'} color="black">
+           {props.jobInfo}
+          
      </Typography>
+     {
+      props.isProf==true &&
+      
      <Button 
      variant='contained'
-     href='www.google.com'//here
+     href={props.profileLink}
      target='_blank'
      sx={{
            backgroundColor:'#e66137',
            color:'white',
            ":hover":{
-           backgroundColor:'#222323',
+           backgroundColor:'#353a40',
            },
            marginTop:'20px',
            height:'44px'
      }}>Profile</Button>
-      </Card>
+}
+     </Card>
       )
 }

@@ -1,0 +1,87 @@
+{
+      "OfficeBearers":[
+                  [
+                   {
+                        "name":"Prof. Sandeep S. Deshmukh",
+                        "post":"Faculty Co-ordinator",
+                        "jobInfo":"Associate Dean, Student Welfare, BITS Pilani - Hyderabad Campus",
+                        "profileLink":"https://universe.bits-pilani.ac.in/hyderabad/deshmukh/profile",
+                        "imageLink":""
+                   },
+                   {
+                        "name":"Dr. Naraparaju. Kishore Kumar",
+                        "post":"Faculty Co-Ordinator",
+                        "jobInfo":"Associate Professor",
+                        "profileLink":"https://universe.bits-pilani.ac.in/hyderabad/nkishore/Profile",
+                        "imageLink":""
+                   },
+                   {
+                        "name":"Dr. Arti Dhar",
+                        "post":"Faculty Co-Ordinator",
+                        "jobInfo":"Associate Professor",
+                        "profileLink":"https://universe.bits-pilani.ac.in/Hyderabad/arti/Profile",
+                        "imageLink":""
+                   },
+                   {
+                        "name":"Dr. Jalaiah Nandanavanam",
+                        "post":"Faculty Co-Ordinator",
+                        "jobInfo":"Associate Professor",
+                        "profileLink":"https://universe.bits-pilani.ac.in/hyderabad/njalaiah/Profile/",
+                        "imageLink":""
+                   }     
+                  ],
+                  [
+                        {
+                             "name":"C Sai Vignesh",
+                             "post":"PRESIDENT",
+                             "imageLink":""
+                        },
+                        {
+                             "name":"Gaurav Golchha",
+                             "post":"SECRETARY",
+                             "imageLink":""
+                        },
+                        {
+                             "name":"Abbagani Gangotri",
+                             "post":"SECRETARY",
+                             "imageLink":""
+                        },
+                        {
+                             "name":"Prachi Shah",
+                             "post":"COMMUNITY ENGAGEMENT LEAD",
+                             "imageLink":""
+                        },
+                        {
+                              "name":"Manisha Jakkula",
+                              "post":"TECHNICAL LEAD",
+                              "imageLink":""
+                         },
+                         {
+                              "name":"Patil Harshith Reddy",
+                              "post":"DESIGN LEAD",
+                              "imageLink":""
+                         },
+                         {
+                              "name":"Nymisha Reddy",
+                              "post":"EDITORIAL LEAD",
+                              "imageLink":""
+                         },
+                         {
+                              "name":"Soumili Bose",
+                              "post":"EVENT CO-ORDINATOR",
+                              "imageLink":""
+                         },
+                         {
+                              "name":"V V Prasanth",
+                              "post":"EVENT CO-ORDINATOR",
+                              "imageLink":""
+                         },
+                         {
+                              "name":"Nishil Bhavsar",
+                              "post":"STUDENT ANONYMOUS LEAD",
+                              "imageLink":""
+                         }       
+                       ]
+            
+      ]
+}
