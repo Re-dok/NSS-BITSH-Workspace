@@ -44,7 +44,7 @@ export default function OfficeBearers(){
       return (
             
             <Container maxWidth='100%'
-                        sx={{backgroundColor:'#F1F1F1',
+                        sx={{backgroundColor:'#FFF2D7',
                               paddingTop:'30px'
                         }}
             >
@@ -61,7 +61,7 @@ export default function OfficeBearers(){
                                     />
          
          <Grid container width='80%' margin={'auto'} paddingBottom={'30px'} 
-         sx={{justifyContent:'center',display:'flex',backgroundColor:cardIndex===1?'#F5EFE6':'transparent'}}>
+         sx={{justifyContent:'center',display:'flex',backgroundColor:cardIndex===1?'#FFE0B5':'transparent'}}>
                                  {
                                        cardDatalocal.map((profDetails,index)=>{
                                              return(

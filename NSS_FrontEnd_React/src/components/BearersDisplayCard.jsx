@@ -20,7 +20,8 @@ export default function BearersDisplayCard(props){
      }}>
            <CardMedia
            component="img"
-           image='../src/assets/Images/abt2.jpg'//here
+           image={props.imageLink}
+           alt={props.name}
            sx={{
                  maxWidth:'200px',
                  maxHeight:'400px',
