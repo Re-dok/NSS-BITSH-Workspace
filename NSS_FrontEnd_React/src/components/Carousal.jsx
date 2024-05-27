@@ -86,7 +86,7 @@ const imageUrl = `${imagesPath}${imagesNames[index]}`
                                     <ArrowLeftIcon sx={{ color: 'white', 
                                                          fontSize: '20px',
                                                          '@media (min-width: 960px)': {
-                                                         fontSize: '40px'
+                                                         fontSize: '55px'
                                                       },
                                                 '@media (min-width: 320x)': {
                                                       fontSize: '20px'
@@ -180,7 +180,7 @@ const imageUrl = `${imagesPath}${imagesNames[index]}`
                                     <ArrowRightIcon sx={{ color: 'white', 
                                                          fontSize: '20px',
                                                          '@media (min-width: 960px)': {
-                                                         fontSize: '40px'
+                                                         fontSize: '55px'
                                                       },
                                                 '@media (min-width: 320x)': {
                                                       fontSize: '20px'
