@@ -11,7 +11,7 @@ const [cardDatalocal, setCardDatalocal] = useState([]);
   useEffect(() => {
       setCardDatalocal(CardDataFile.cardData);
 }, []);
-
+const backgroundImageLink='./src/assets/Images/eventsBg.jpg';
 //app doesnt break while fetching and displays a loading "bar"
 if (cardDatalocal.length === 0) {
       return <LinearProgress />;
@@ -23,9 +23,9 @@ if (cardDatalocal.length === 0) {
              heading={'Our '}
              heightlighterHeading={<span key="highlight" style={{color:"#f1633b"}}>Events</span>
             }
-             bodyText={['Take a ride through our plethora of events and witness the journey we made so far!']}
-             backgroundImageLink={'./src/assets/Images/eventsBg.jpg'}
-                             />
+            bodyText={['Take a ride through our plethora of events and witness the journey we made so far!']}
+            backgroundImageLink={backgroundImageLink}
+            />
                   <Typography variant="h4" 
                               color="white"
                               textAlign={"center"}
