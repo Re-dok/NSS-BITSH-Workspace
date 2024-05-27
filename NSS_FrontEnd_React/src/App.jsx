@@ -8,7 +8,7 @@ import AboutUs from './components/AboutUs';
 import OfficeBearers from './components/OfficeBearers';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AllEvents from './components/AllEvents';
-  
+import PageNotFound from './components/PageNotFound';
 function App() {
   return (
     <>
@@ -20,6 +20,7 @@ function App() {
           <Route path='events/' element={<Events/>}/>
           <Route path='aboutUs/'element={<AboutUs/>}/>
           <Route path='officeBearers/'element={<OfficeBearers/>}/>
+          <Route path='*'element={<PageNotFound/>}></Route>
         </Routes>
         <Footer/>
       </Router>
