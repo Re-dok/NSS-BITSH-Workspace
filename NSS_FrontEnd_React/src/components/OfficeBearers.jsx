@@ -39,7 +39,6 @@ export default function OfficeBearers(){
             return (
                   <></>
             )}
-            console.log(cardDataLocal[0]);
       
       return (
             

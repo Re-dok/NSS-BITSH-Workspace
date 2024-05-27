@@ -3,7 +3,7 @@ import MajorDisplayCard from "./MajorDisplayCard"
 import Typography from '@mui/material/Typography'
 import { useState,useEffect } from "react"
 import CardDataFile from '../assets/Data/EventsCardsData.json'
-import { Container, LinearProgress } from "@mui/material"
+import {LinearProgress } from "@mui/material"
 
 export default function Events(){
 
