@@ -49,7 +49,7 @@ export default function AllEvents() {
       </Button>
       {cardDatalocal.map((cardData, index) => (
         <MajorDisplayCard 
-          id={index.toString()}
+          id={cardData.contentYear+cardData.contentHeading}
           key={index}
           index={index}
           cardtheme="light"

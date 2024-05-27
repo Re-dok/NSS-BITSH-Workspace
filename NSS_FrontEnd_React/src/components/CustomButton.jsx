@@ -19,10 +19,12 @@ export default function CustomButton(props){
                 setTimeout(() => {
                   const element = document.getElementById(hash);
                   if (element) {
-                    element.scrollIntoView({ behavior: 'smooth',block: 'center', // Scroll to the center of the element
-                    inline: 'nearest', });
+                    element.scrollIntoView({ behavior: 'smooth',
+                                             block: 'center', // Scroll to the center of the element
+                                             inline: 'nearest'
+                                          });
                   }
-                }, 10); // Adjust the delay as needed based on your page loading time
+                }, 800); // Adjust the delay as needed based on your page loading time
               }
             }
           };

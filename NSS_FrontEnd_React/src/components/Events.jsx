@@ -36,7 +36,7 @@ if (cardDatalocal.length === 0) {
             <MajorDisplayCard 
                   key={index}
                   buttonText='Read More'
-                  contentButtonLink={'../allEvents#'+index}
+                  contentButtonLink={'../home#'+cardData.contentYear+cardData.contentHeading}//here
                   index={index}
                   imgL={cardData.contentImageLink}
                   contentYear={cardData.contentYear}

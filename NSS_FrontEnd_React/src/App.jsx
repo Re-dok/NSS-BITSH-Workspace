@@ -16,10 +16,10 @@ function App() {
         <Appbar/>
         <div style={{marginBottom:'70px'}}></div>
         <Routes>
-          <Route path='/home' element={<Carousal/>}/>
+          <Route path='/home' element={[<Carousal/>,<AllEvents/>]}/>
           <Route path='events/' element={<Events/>}/>
           <Route path='aboutUs/'element={<AboutUs/>}/>
-          <Route path='allEvents/'element={<AllEvents/>}/>
+          {/* <Route path='allEvents/'element={<AllEvents/>}/> */}
           <Route path='officeBearers/'element={<OfficeBearers/>}/>
         </Routes>
         <Footer/>
