@@ -32,18 +32,20 @@ if (cardDatalocal.length === 0) {
                               margin={"15px"}>
                   Latest
                   </Typography>
-            {cardDatalocal.map((cardData, index) => (
+            {cardDatalocal.map((cardData, index) => {
+                  let i='../home#'+cardData.contentYear+cardData.contentHeading;
+              return    (
             <MajorDisplayCard 
                   key={index}
                   buttonText='Read More'
-                  contentButtonLink={'../home#'+cardData.contentYear+cardData.contentHeading}
+                  contentButtonLink={i.toLowerCase()}
                   index={index}
                   imgL={cardData.contentImageLink}
                   contentYear={cardData.contentYear}
                   contentHeading={cardData.contentHeading}
                   contentText={cardData.contentText}
         />
-      ))}
+      )})}
 
             </div>     
       )

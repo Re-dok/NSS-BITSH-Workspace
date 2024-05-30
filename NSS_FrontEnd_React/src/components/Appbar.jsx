@@ -12,18 +12,44 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import { useMediaQuery } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route,useLocation } from 'react-router-dom';
 
-const pagesInfo = [{ page: 'Home', pageLink: '/home' },
-{ page: 'Events', pageLink: '/events' },
-{ page: 'About Us', pageLink: '/aboutUs' },
-{ page: 'Office Bearers', pageLink: '/officeBearers' }
+const pagesInfo = [{ page: 'home', pageLink: '/home' },
+{ page: 'events', pageLink: '/events' },
+{ page: 'about Us', pageLink: '/aboutUs' },
+{ page: 'office Bearers', pageLink: '/officeBearers' }
 
-//add this in the future,req backend
+// add this in the future,req backend
 // ,{ page: 'Contact Us', pageLink: '/contactUs' }
 
 ];
 
 function Appbar() {
+
+      const location = useLocation();
+    
+      React.useEffect(() => {
+        let path = location.pathname.split('/');
+        let correctPath=false;
+        
+        if(path.length>2&&path[1]&&path[2]!='#'){
+            correctPath=false;
+        }
+        else{
+              path = path[1].replace(/([A-Z])/g, ' $1');
+              
+              pagesInfo.forEach((potentialPage)=>{
+                    if(path==potentialPage.page)
+                        correctPath=true;
+            })
+      }
+        if(correctPath)
+            setActivePage(path);
+        else 
+            setActivePage('');
+      }, [location]);
+          
+      const [activePage,setActivePage]=React.useState('');
       const [anchorElNav, setAnchorElNav] = React.useState(null);
       const isMediumScreen = useMediaQuery('(min-width:600px)');
       const isLargeScreen = useMediaQuery('(min-width:960px)');
@@ -38,13 +64,16 @@ function Appbar() {
       };
       const navigate = useNavigate();
 
-      const handleClick = (pageLink) => {
-            navigate(pageLink);
+      const handleClick = (pageInfo) => {
+            navigate(pageInfo.pageLink); 
       };
 
       return (
+            <>
+        <div style={{marginBottom:'70px'}}></div>
+
             <AppBar position="fixed" style={{ paddingLeft: '0', paddingRight: '0', background: '#353a40' }}>
-                  <Container maxWidth="full" width="full" sx={{ paddingLeft: '0', paddingRight: '0', background: '#353a40', height: '70px', }} >
+                  <Container maxWidth="true" sx={{ paddingLeft: '0', paddingRight: '0', background: '#353a40', height: '70px', }} >
                         <Toolbar disableGutters sx={{
                               paddingLeft: '0px',
                               paddingRight: '0px',
@@ -58,7 +87,7 @@ function Appbar() {
                               },
                         }}>
                               <img
-                                    src="./src/assets/Images/NSS-symbol.png"
+                                    src="../src/assets/Images/NSS-symbol.png"
                                     alt="NSS logo"
                                     loading="lazy"
                                     style={{
@@ -66,7 +95,9 @@ function Appbar() {
                                     }}
                               />
                               <Box sx={{ display: 'block' }}>
-                                    <Link to="/home" style={{ color: "inherit", textDecoration: 'none' }}>
+                                    <Link to="/home"
+                                          onClick={()=>setActivePage('Home')}
+                                          style={{ color: "inherit", textDecoration: 'none' }}>
                                           <Typography
                                                 variant="h6"
                                                 noWrap
@@ -80,7 +111,7 @@ function Appbar() {
                                                       color: 'inherit',
                                                       textDecoration: 'none',
                                                 }}
-                                          >
+                                                >
                                                 NATIONAL SERVICE SCHEME
                                           </Typography>
                                           <Typography variant="caption" sx={{ display: { xs: 'none', md: 'flex' }, fontSize: '10px', ml: 2 }} gutterBottom>
@@ -99,9 +130,9 @@ function Appbar() {
                                                       color: 'inherit',
                                                       fontSize: isSmallMobile ? '16px' : '1.25rem',
                                                       textDecoration: 'none',
-
+                                                      
                                                 }}
-                                          >
+                                                >
                                                 NATIONAL SERVICE SCHEME
                                           </Typography>
                                           <Typography variant="caption" sx={{ display: { xs: 'flex', md: 'none' }, fontSize: '10px', ml: 2 }} gutterBottom>
@@ -113,15 +144,18 @@ function Appbar() {
                               <Box sx={{ flexGrow: 1, justifyContent: 'right', display: { xs: 'none', lg: 'flex' } }}>
                                     {pagesInfo.map((pageInfo) => (
                                           <Button
-                                                key={pageInfo.pageLink}
-                                                onClick={() => handleClick(pageInfo.pageLink)}
-                                                sx={{
-                                                      my: 2, color: 'white', display: 'block',
-                                                      ':hover': {
-                                                            color: '#e0583b',
-                                                            cursor: 'pointer',
-                                                      },
-                                                }}
+                                          key={pageInfo.pageLink}
+                                          onClick={() => handleClick(pageInfo)}
+                                          sx={{
+                                                my: 2,
+                                                color:activePage==pageInfo.page?'#f1623a':'white',
+                                                borderBottom:activePage==pageInfo.page?"1px solid white":'none',
+                                                display: 'block',
+                                                ':hover': {
+                                                      color: '#e0583b',
+                                                      cursor: 'pointer',
+                                                },
+                                          }}
                                           >
                                                 {pageInfo.page}
                                           </Button>
@@ -129,12 +163,12 @@ function Appbar() {
                               </Box>
                               <Box
 
-                                    sx={{
-
-                                          flexGrow: 1,
-                                          justifyContent: 'right',
-                                          display: { xs: 'flex', lg: 'none' },
-                                    }}>
+sx={{
+      
+      flexGrow: 1,
+      justifyContent: 'right',
+      display: { xs: 'flex', lg: 'none' },
+}}>
                                     <IconButton
                                           sx={{ padding: 0, marginRight: '5px' }}
                                           size="large"
@@ -143,7 +177,7 @@ function Appbar() {
                                           aria-haspopup="true"
                                           onClick={handleOpenNavMenu}
                                           color="inherit"
-                                    >
+                                          >
                                           <MenuIcon />
                                     </IconButton>
                                     <Menu
@@ -167,20 +201,20 @@ function Appbar() {
                                                       paddingBottom: 0,
                                                 },
                                           }}
-                                    >
+                                          >
                                           <MenuList >
                                                 {pagesInfo.map((pageInfo) => (
                                                       <Link to={pageInfo.pageLink}
-                                                            key={pageInfo.page}
-                                                            style={{
-                                                                  color: "inherit",
-                                                                  textDecoration: 'none'
-                                                            }}>
+                                                      key={pageInfo.page}
+                                                      style={{
+                                                            color: "inherit",
+                                                            textDecoration: 'none',
+                                                      }}>
                                                             <MenuItem
                                                                   onClick={() => {
                                                                        
                                                                         handleCloseNavMenu();
-                                                                      }}
+                                                                  }}
                                                                   sx={{
                                                                         background: '#353a40',
                                                                         color: 'white',
@@ -200,6 +234,7 @@ function Appbar() {
                         </Toolbar>
                   </Container>
             </AppBar>
+      </>
       );
 }
 export default Appbar;

@@ -75,9 +75,11 @@ export default function AllEvents() {
         Back to Events
       </Button>
       }
-      {cardDatalocal.map((cardData, index) => (
+      {cardDatalocal.map((cardData, index) => {
+        let i=cardData.contentYear+cardData.contentHeading+"";
+        return (
         <MajorDisplayCard 
-          id={cardData.contentYear+cardData.contentHeading}
+          id={i.toLowerCase()}
           key={index}
           index={index}
           cardtheme="light"
@@ -89,7 +91,7 @@ export default function AllEvents() {
           contentHeading={cardData.contentHeading}
           contentText={cardData.contentText}
         />
-      ))}
+      )})}
       
     </>
   );
