@@ -125,6 +125,7 @@ export default function MajorDisplayCard(props) {
             {
               (props.cardtheme != 'light') &&
               <CustomButton 
+              isMoreEvents={false}
               buttonText={props.buttonText}
               contentButtonLink={props.contentButtonLink} />
             }

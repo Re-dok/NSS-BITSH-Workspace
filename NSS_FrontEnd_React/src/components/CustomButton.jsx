@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link,useNavigate } from "react-router-dom"
 export default function CustomButton(props){
 
@@ -29,29 +30,38 @@ export default function CustomButton(props){
             }
           };
           
-
+          const [isHovered,setIsHovered]=useState(false);
+          const handleMouseEnter=()=>{
+                          setIsHovered(true);
+                      }
+          const handleMouseLeave=()=>{
+                        setIsHovered(false);
+                    }
 return (
 
       <Link
       to={props.contentButtonLink}
       onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       style={{
             display: 'inline-flex',
             textDecoration: 'none',
             padding: '10px 20px',
             marginTop: '10px',
-            width: '77px',
-            fontSize: '0.9rem',
+            width:props.isMoreEvents==false?'77px':'auto',
+            fontSize:props.isMoreEvents==false?'0.9rem':'1.5rem',
             height: '24px',
-            backgroundColor: '#e66137',
-            color: 'white',
+            backgroundColor:props.isMoreEvents==false?'#e66137':'white',
+            color: props.isMoreEvents==false?'white':(isHovered?'blue':'black'),
             borderRadius: '4px',
             alignItems: 'center', // Center vertically
             justifyContent: 'center', // Center horizontally
             cursor: 'pointer',
             textAlign:'center',
             textJustify:'inter-word'
-      }}
+        }}
+
 >
 {props.buttonText}
 </Link>

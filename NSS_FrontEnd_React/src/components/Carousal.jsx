@@ -5,6 +5,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import CarousalCardData from '../assets/Data/CarousalCardsData.json';
 import "../assets/Styles/Carousal.css";
+import {LinearProgress } from "@mui/material"
 
 const childFactory = (direction) => (child) => {
   return React.cloneElement(child, {
@@ -63,7 +64,7 @@ export default function Carousal() {
   });
 
   if (imagesNames.length === 0) {
-    return <p>Loading...</p>;
+    return <LinearProgress />;
   }
 
   const imageUrl = imagesNames[index];

@@ -76,10 +76,10 @@ export default function AllEvents() {
       </Button>
       }
       {cardDatalocal.map((cardData, index) => {
-        let i=cardData.contentYear+cardData.contentHeading+"";
+        let effectiveLink=cardData.contentYear+cardData.contentHeading+"";
         return (
         <MajorDisplayCard 
-          id={i.toLowerCase()}
+          id={effectiveLink.toLowerCase()}
           key={index}
           index={index}
           cardtheme="light"
