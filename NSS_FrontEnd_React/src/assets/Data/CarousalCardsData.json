@@ -1,5 +1,11 @@
 {
       "CarousalCardsData":[
+            {
+                  "headingText":"NSS",
+                  "heighlightedHeadingText":"BITS Hyderabad",
+                  "bodyText":"NSS Chapter at BITS Hyderabad is a family of over 250 volunteers who strive for a better society and developing a thought of service in young minds.",
+                  "backgroundImageLink":"./src/assets/Images/bitsh.jpg"
+            },
                   {
                         "headingText":"Eco-Friendly",
                         "heighlightedHeadingText":"Diwali",
@@ -7,11 +13,6 @@
                         "backgroundImageLink":"./src/assets/Images/diw4.jpg"
                   },
                   {
-                        "headingText":"NSS",
-                        "heighlightedHeadingText":"BITS Hyderabad",
-                        "bodyText":"NSS Chapter at BITS Hyderabad is a family of over 250 volunteers who strive for a better society and developing a thought of service in young minds.",
-                        "backgroundImageLink":"./src/assets/Images/bitsh.jpg"
-                  },{
                         "headingText":"Our Visits and",
                         "heighlightedHeadingText":"Camps",
                         "bodyText":"We conduct recreational visits to various places gaining insight into several NGO’s working, visiting orphanages, old-age homes as well as fun visits such as accompanying orphanage children to Zoo. We are going to conduct camps soon.",

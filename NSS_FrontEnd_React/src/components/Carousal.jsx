@@ -129,7 +129,7 @@ export default function Carousal() {
                   '@media (max-height: 320px), (max-width: 480px)': {
                     fontSize: '40px'
                   }
-                }}>{headingText}<span style={{ color: "#f1633b" }}>{heighlightedHeadingText}</span></Typography>
+                }}>{headingText}<span style={{ color: "#f1633b" }}> {heighlightedHeadingText}</span></Typography>
                  <Typography
                 variant="body2"
                 color='white'
