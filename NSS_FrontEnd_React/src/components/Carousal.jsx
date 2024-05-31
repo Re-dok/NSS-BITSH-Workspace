@@ -24,6 +24,13 @@ export default function Carousal() {
     setImagesNames(data.map(item => item.backgroundImageLink));
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      slideRight();
+    }, 5000);
+    return () => clearInterval(interval);
+  },);
+
   const slideLeft=()=>{
             const nextIndex=index-1;
             if(nextIndex<0){
